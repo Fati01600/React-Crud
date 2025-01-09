@@ -1,0 +1,113 @@
+/* General Reset */
+* {
+    margin: 3;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #3e77ea; 
+    color: #333; 
+}
+  
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 20px; 
+    height: auto;
+}
+  
+.left-section {
+    background-color: #ffffff; 
+    padding: 20px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    overflow-y: auto;
+}
+  
+.right-section {
+    background-color: #ffffff; 
+    padding: 20px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    overflow-y: auto;
+}
+  
+/* Tabeller */
+.table-wrapper {
+    border-radius: 12px; 
+    padding: 10px; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff; 
+}
+  
+td, th {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    background-color: #f9f9f9; 
+}
+  
+th {
+    background-color: #e2aa4a; 
+    color: white; 
+}
+  
+/* Knapper */
+button {
+    padding: 10px 15px;
+    margin-right: 5px;
+    background-color:#e2aa4a; 
+    color: rgb(255, 255, 255); 
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+  
+button:hover {
+    background-color: #ea0000; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+  
+/* Save*/
+form button[type="submit"] {
+    background-color: #e2aa4a; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+  
+form button[type="submit"]:hover {
+    background-color: #467837; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+  
+/* Input-felter */
+form input, form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    color: #333; 
+}
+  
+form input:focus, form select:focus {
+    border-color: #4a90e2; 
+    outline: none; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
