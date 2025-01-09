@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
 import PersonForm from "./components/PersonForm";
 import StudentList from "./components/StudentList";
 import { fetchData } from "./utils/fetchData";
@@ -7,37 +7,39 @@ import { fetchData } from "./utils/fetchData";
 function App() {
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
+  const [teachers, setTeachers] = useState([]);
   const [editingStudent, setEditingStudent] = useState(null);
 
-  // Hent data
+  // Henter data fra API'et
   useEffect(() => {
-    fetchData("http://localhost:3000/students", setStudents);
-    fetchData("http://localhost:3000/classes", setClasses);
+    fetchData("/students", setStudents);
+    fetchData("/classes", setClasses);
+    fetchData("/teachers", setTeachers);
   }, []);
 
-  // Tilføj ny studerende
+ 
   const addStudent = (student) => {
     fetchData(
-      "http://localhost:3000/students",
+      "/students",
       (newStudent) => setStudents([...students, newStudent]),
       "POST",
       student
     );
   };
 
-  // Slet en studerende
+  
   const deleteStudent = (id) => {
     fetchData(
-      `http://localhost:3000/students/${id}`,
+      `/students/${id}`,
       () => setStudents(students.filter((s) => s.id !== id)),
       "DELETE"
     );
   };
 
-  // Opdater en studerende
+  
   const editStudent = (updatedStudent) => {
     fetchData(
-      `http://localhost:3000/students/${updatedStudent.id}`,
+      `/students/${updatedStudent.id}`,
       (newStudent) =>
         setStudents(
           students.map((s) => (s.id === newStudent.id ? newStudent : s))
@@ -48,26 +50,31 @@ function App() {
     setEditingStudent(null);
   };
 
-  // Håndter "Edit"-knappen
+  // redigeringstilstand for en specifik elev
   const handleEdit = (student) => {
     setEditingStudent(student);
   };
 
   return (
     <div className="container">
+      {/* Studenterlisten */}
       <div className="left-section">
         <h1>Student List</h1>
         <StudentList
           students={students}
           classes={classes}
+          teachers={teachers}
           onEdit={handleEdit}
           onDelete={deleteStudent}
         />
       </div>
+
+      {/* tilføjelse eller redigering */}
       <div className="right-section">
         <h1>{editingStudent ? "Edit Student" : "Add Student"}</h1>
         <PersonForm
           classes={classes}
+          teachers={teachers}
           onSubmit={editingStudent ? editStudent : addStudent}
           editingStudent={editingStudent}
         />

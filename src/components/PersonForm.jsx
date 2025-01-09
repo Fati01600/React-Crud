@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from "react";
 
-const PersonForm = ({ classes, onSubmit, editingStudent }) => {
+const PersonForm = ({ classes, teachers, onSubmit, editingStudent }) => {
   const [formData, setFormData] = useState({
     id: "",
     name: "",
     age: "",
     email: "",
     classes: [],
+    teacher: "",
   });
 
   useEffect(() => {
     if (editingStudent) {
       setFormData(editingStudent);
     } else {
-      setFormData({ id: "", name: "", age: "", email: "", classes: [] });
+      setFormData({
+        id: "",
+        name: "",
+        age: "",
+        email: "",
+        classes: [],
+        teacher: "",
+      });
     }
   }, [editingStudent]);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-
     if (id === "class") {
       const selectedClasses = Array.from(e.target.selectedOptions, (option) =>
-        Number(option.value)
+        parseInt(option.value)
       );
       setFormData({ ...formData, classes: selectedClasses });
     } else {
@@ -32,12 +39,15 @@ const PersonForm = ({ classes, onSubmit, editingStudent }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.age || !formData.email) {
-      alert("Please fill in all required fields!");
-      return;
-    }
     onSubmit(formData);
-    setFormData({ id: "", name: "", age: "", email: "", classes: [] });
+    setFormData({
+      id: "",
+      name: "",
+      age: "",
+      email: "",
+      classes: [],
+      teacher: "",
+    });
   };
 
   return (
@@ -88,6 +98,23 @@ const PersonForm = ({ classes, onSubmit, editingStudent }) => {
           </option>
         ))}
       </select>
+
+      <label htmlFor="teacher">Teacher</label>
+<select
+  id="teacher"
+  value={formData.teacher || ""}
+  onChange={handleChange}
+>
+  <option value="" disabled>
+    Select a teacher
+  </option>
+  {teachers.map((teacher) => (
+    <option key={teacher.id} value={teacher.name}>
+      {teacher.name}
+    </option>
+  ))}
+</select>
+
 
       <button type="submit">{editingStudent ? "Update" : "Save"}</button>
     </form>

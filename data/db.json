@@ -1,51 +1,128 @@
 {
   "students": [
     {
-      "id": 1,
-      "name": "Alice",
-      "age": 20,
-      "email": "alice@example.com",
-      "classes": [1, 2]
+      "id": "1",
+      "name": "Jon",
+      "age": "35",
+      "email": "Jon@outlook.dk",
+      "classes": [
+        1
+      ],
+      "teacher": "Mrs. Ulrikke"
     },
     {
-      "id": 2,
-      "name": "Bob",
-      "age": 20,
-      "email": "bob@example.com",
-      "classes": [1, 2]
-    },
-    {
-      "id": 3,
-      "name": "Charlize",
-      "age": 20,
-      "email": "char@example.com",
-      "classes": [2]
-    },
-    {
-      "id": 4,
-      "name": "Eric",
-      "age": 22,
-      "email": "eric@example.com",
-      "classes": [1]
-    },
-    {
-      "id": 5,
+      "id": "2",
       "name": "Fatima",
-      "age": 26,
-      "email": "fifi@example.com",
-      "classes": [1, 2]
+      "age": "26",
+      "email": "Fatima@outlook.dk",
+      "classes": [
+        10
+      ],
+      "teacher": "Mr. Alexander"
+    },
+    {
+      "id": "3",
+      "name": "Jas",
+      "age": "25",
+      "email": "Jas@outlook.dk",
+      "classes": [
+        4
+      ],
+      "teacher": "Ms. Sophie"
     }
   ],
   "classes": [
     {
       "id": 1,
-      "name": "Math 101",
-      "teacher": "Mr. Smith"
+      "name": "Belly Dancing",
+      "teacher": "Mrs. Ulrikke"
     },
     {
       "id": 2,
-      "name": "History 201",
-      "teacher": "Mrs. Johnson"
+      "name": "Yoga",
+      "teacher": "Mrs. Ulla"
+    },
+    {
+      "id": 3,
+      "name": "Kickboxing",
+      "teacher": "Mr. Carl"
+    },
+    {
+      "id": 4,
+      "name": "Pilates",
+      "teacher": "Ms. Sophie"
+    },
+    {
+      "id": 5,
+      "name": "Zumba",
+      "teacher": "Ms. Ingrid"
+    },
+    {
+      "id": 6,
+      "name": "CrossFit",
+      "teacher": "Mr. Jonathan"
+    },
+    {
+      "id": 7,
+      "name": "Spinning",
+      "teacher": "Ms. Clara"
+    },
+    {
+      "id": 8,
+      "name": "HIIT Training",
+      "teacher": "Mr. Henrik"
+    },
+    {
+      "id": 9,
+      "name": "Aqua Aerobics",
+      "teacher": "Ms. Emma"
+    },
+    {
+      "id": 10,
+      "name": "Strength Training",
+      "teacher": "Mr. Alexander"
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "name": "Mrs. Ulrikke"
+    },
+    {
+      "id": 2,
+      "name": "Mrs. Ulla"
+    },
+    {
+      "id": 3,
+      "name": "Mr. Carl"
+    },
+    {
+      "id": 4,
+      "name": "Ms. Sophie"
+    },
+    {
+      "id": 5,
+      "name": "Ms. Ingrid"
+    },
+    {
+      "id": 6,
+      "name": "Mr. Jonathan"
+    },
+    {
+      "id": 7,
+      "name": "Ms. Clara"
+    },
+    {
+      "id": 8,
+      "name": "Mr. Henrik"
+    },
+    {
+      "id": 9,
+      "name": "Ms. Emma"
+    },
+    {
+      "id": 10,
+      "name": "Mr. Alexander"
     }
   ]
 }

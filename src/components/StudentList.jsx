@@ -1,8 +1,15 @@
 import React from "react";
 
 const StudentList = ({ students, classes, onEdit, onDelete }) => {
-  const getClassNames = (classIds) =>
-    classIds.map((id) => classes.find((cls) => cls.id === Number(id))?.name).join(", ");
+  const getClassName = (classIds) => {
+    if (!classes || classes.length === 0) return "Unknown";
+    return classIds
+      .map((id) => {
+        const foundClass = classes.find((cls) => cls.id === id);
+        return foundClass ? foundClass.name : "Unknown";
+      })
+      .join(", ");
+  };
 
   return (
     <table>
@@ -13,6 +20,7 @@ const StudentList = ({ students, classes, onEdit, onDelete }) => {
           <th>Age</th>
           <th>Email</th>
           <th>Classes</th>
+          <th>Teacher</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -23,7 +31,8 @@ const StudentList = ({ students, classes, onEdit, onDelete }) => {
             <td>{student.name}</td>
             <td>{student.age}</td>
             <td>{student.email}</td>
-            <td>{getClassNames(student.classes)}</td>
+            <td>{getClassName(student.classes)}</td>
+            <td>{student.teacher}</td>
             <td>
               <button onClick={() => onEdit(student)}>Edit</button>
               <button onClick={() => onDelete(student.id)}>Delete</button>

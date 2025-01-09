@@ -1,25 +1,19 @@
-export function fetchData(url, callback, method = "GET", body = null) {
+const BASE_URL = "http://localhost:3000";
+
+export function fetchData(endpoint, callback, method = "GET", body = null) {
   const headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
   };
 
   const options = { method, headers };
-  if (body) {
-    options.body = JSON.stringify(body);
-  }
+  if (body) options.body = JSON.stringify(body);
 
-  fetch(url, options)
+  fetch(`${BASE_URL}${endpoint}`, options)
     .then((res) => {
-      console.log("Response:", res.status, res.statusText);
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
-      }
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
       return res.json();
     })
-    .then((data) => {
-      console.log("Fetched data:", data);
-      callback(data);
-    })
+    .then(callback)
     .catch((err) => console.error("Error:", err));
 }
